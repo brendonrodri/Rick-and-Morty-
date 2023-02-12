@@ -4,7 +4,7 @@ import axios from "axios"
 
 export default class App extends React.Component {
   state={
-    count:0
+    count:1
   }
   getApi = ()=>{
     axios.get(`https://rickandmortyapi.com/api/character/${this.state.count}`).then(response =>{
@@ -12,6 +12,9 @@ export default class App extends React.Component {
       this.setState({api: data.image})
       console.log(this.state.api)
     })
+  }
+  componentDidMount(){
+   this.getApi()
   }
   count = () =>{
 
